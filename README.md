@@ -199,29 +199,29 @@ setwd(path)
 library(xlsx)
 write.csv(keep.samples, "KeptSamples.csv")
 
-# #write out kept counts files:
-# path ="/Users/aciernia/Sync/collaborations/Ashwood/HumanMacrophageLPS/Analysis_4_2021/counts_kept"
-# setwd(path)
-# input.files <-dir(path, pattern ='*counts.txt')
-# 
-# keep.samples$filenames2 <- gsub("out", "counts", keep.samples$filenames)
-# 
-# input.files.keep <- input.files[which(input.files %in% keep.samples$filenames2)]
-# 
-# for(i in 1:length(input.files.keep)){
-#   file <- read.table(input.files.keep[i],skip=1, header=TRUE, sep="\t", stringsAsFactors=FALSE)
-#   
-#   #get file name
-#   m <- as.data.frame(input.files.keep[i])
-#   names(m) <-  c("split")
-#   m$split <- as.character(m$split)
-#   m <-tidyr::separate(m,split,into= c("name","stuff","stuff2"),sep="\\.")
-#   
-#   print(m$name)
-# 
-#   write.table(file, file =paste("C:\\Users\\Megan\\Documents\\Ciernia Lab\\Bioninformatics\\HumanMacrophageAshwood\\htcounts",
-# m$name, ".counts.txt", sep=""), sep="\t",quote=F)
-# }
+#write out kept counts files:
+path ="/Users/aciernia/Sync/collaborations/Ashwood/HumanMacrophageLPS/Analysis_4_2021/counts_kept"
+setwd(path)
+input.files <-dir(path, pattern ='*counts.txt')
+
+keep.samples$filenames2 <- gsub("out", "counts", keep.samples$filenames)
+
+input.files.keep <- input.files[which(input.files %in% keep.samples$filenames2)]
+ 
+for(i in 1:length(input.files.keep)){
+file <- read.table(input.files.keep[i],skip=1, header=TRUE, sep="\t", stringsAsFactors=FALSE)
+  
+#get file name
+m <- as.data.frame(input.files.keep[i])
+names(m) <-  c("split")
+m$split <- as.character(m$split)
+m <-tidyr::separate(m,split,into= c("name","stuff","stuff2"),sep="\\.")
+
+print(m$name)
+
+write.table(file, file =paste("C:\\Users\\Megan\\Documents\\Ciernia Lab\\Bioninformatics\\HumanMacrophageAshwood\\htcounts",
+m$name, ".counts.txt", sep=""), sep="\t",quote=F)
+}
 
 
 #read in only kept counts files:
