@@ -85,35 +85,6 @@ cd star_out
 for bamfile in */starAligned.sortedByCoord.out.bam ; do samtools index ${bamfile}; done
 
 #From this point any further analysis can be applied
-
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@mgnrowland 
-ciernialab
-/
-RNAseq_Ashwood_2021
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-RNAseq_Ashwood_2021/Rcode for DE genes
-@mgnrowland
-mgnrowland Update Rcode for DE genes
-Latest commit c957b6f 25 days ago
- History
- 1 contributor
-3056 lines (2346 sloc)  110 KB
    
 ## code for taking counts.txt file outputs from FeatureCounts and importing into R for EdgeR and/or limmavoom analysis
 ## loops through each txt file and takes the GeneID and accepted_hits.bam counts columns (counts per gene)
